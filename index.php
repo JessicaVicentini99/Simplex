@@ -2,6 +2,12 @@
 require_once("header.php");
 ?>
 
+<style type="text/css">
+  #imagem-topo{
+    height: 400px !important;
+  }
+</style>
+
   <div class="main main-raised">
     <div class="container">
       <div class="section text-center" id="about-product">
@@ -31,6 +37,12 @@ require_once("header.php");
           <form class="form-inline centralizado" action="/simplex/step2.php" method="POST">
             <div class="col-md-3">
               <div class="form-group">
+                <!--<label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>-->
+                <input type="hidden" class="form-control" name="" id="" >
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
                 <label for="variable" class="bmd-label-floating">Número de Variáveis</label>
                 <input type="number" class="form-control" name="variaveis" id="variaveis" required>
               </div>
@@ -39,12 +51,6 @@ require_once("header.php");
               <div class="form-group">
                 <label for="restriction" class="bmd-label-floating" style="width: 140px;">Número de Restrições</label>
                 <input type="number" class="form-control" name="restricoes" id="restricoes" required="">
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>
-                <input type="number" class="form-control" name="" id="" required>
               </div>
             </div>
             <div class="col-md-3" style="margin-top: 15px;">
