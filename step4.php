@@ -53,7 +53,7 @@ include 'header.php';
                 </div>
                 <div class="row">
                   <div class="col-md-6">           
-                    <button class="btn btn-primary btn-round" id="voltar-resultado" onclick="VoltarPasso()" style="margin-top: 29px;float:right;">Voltar</button>            
+                    <button class="btn btn-primary btn-round" id="voltar-resultado" style="margin-top: 29px;float:right;">Voltar</button>            
                   </div>
                   <div class="col-md-6">
                     <a href="index.php">
@@ -64,21 +64,18 @@ include 'header.php';
               </div>
        </div>
     </div>
-</div>    
-<?php
-    require_once("footer.php");
-?>
+</div>      
+
 <script type="text/javascript">
 var iteracoes
 var colunas;
 var contador = 0;
 var total ;
-var sensibilidade;
+
 
 $(document).ready(function() {
     
     iteracoes = JSON.parse(window.localStorage.getItem("tabela"));
-    sensibilidade =  JSON.parse(window.localStorage.getItem("sensibilidade"));
     total = iteracoes.length;
     colunas = (Object.keys(iteracoes[0]['base'][0]['colunas'])).reverse();
     
@@ -163,7 +160,7 @@ function Anterior(){
         if(contador == total)
         {
         
-            $('#botao-sensibilidade').remove();
+            $('#sensitivity').remove();
             $('#botao').append('<button class="btn btn-primary btn-round" onclick="Proximo()" id="proximo">Proximo</button>');
            // $('#solucao').empty();
         }
@@ -212,17 +209,13 @@ function destroy(){
 }
 
 function MostrarRel(){
+    alert('ola');
     $('#relatorio_passo_passo').fadeIn("slow");
     $('#resolucao-final').fadeOut("slow");
-    $('#relatorio-sensibilidade-2').append(sensibilidade)
 }
 
-function VoltarPasso(){
-    $('#resolucao-final').fadeIn("slow");
-    $('#relatorio_passo_passo').fadeOut("slow");
-}
-
-function Inicio(){
-    window.location.replace('index.php');
-}
 </script>
+
+<?php
+    require_once("footer.php");
+?>
