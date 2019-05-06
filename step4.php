@@ -224,12 +224,13 @@ function destroy(){
 function MostrarRel(){
     $('#relatorio_passo_passo').fadeIn("slow");
     $('#resolucao-final').fadeOut("slow");
-     $('#relatorio-sensibilidade-2').append(sensibilidade)
+    $('#relatorio-sensibilidade-2').append(sensibilidade)
 }
 
 function VoltarPasso(){
     $('#resolucao-final').fadeIn("slow");
     $('#relatorio_passo_passo').fadeOut("slow");
+    $('#relatorio-sensibilidade-2').empty();
 }
 
 function Inicio(){
