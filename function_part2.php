@@ -416,9 +416,11 @@ function buscaRelatorioSensibilidade(){
        $min = retornaDivisaoColuna($b, $f, 'min', $min, $i);
     }
 
-    $html = montarTabelaSensibilidade($dados_retorno_json['dados']['valores_finais'], $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
+    $valores_finais = retornaValorFinal($GLOBALS['interacoes']);
 
-    print  json_encode($html);
+    $html = montarTabelaSensibilidade($valores_finais, $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
+
+    return $html;
 }
 
 
@@ -473,8 +475,7 @@ function verificacao($restricoes)
         /*Matheus, fua função sai daqui. Este foi o modo de mesclar o que eu já tinha feito com o seu...
           O else está mandando a solução direta.*/
         $dados['interacoes'] = $GLOBALS['interacoes'];
-        $dados['sensibilidade'] = montarTabelaSensibilidade($dados_retorno_json['dados']['valores_finais'], $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
-
+        $dados['sensibilidade'] = buscaRelatorioSensibilidade();
         print json_encode($dados);
     }else{
 
