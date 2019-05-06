@@ -65,12 +65,9 @@ include 'header.php';
        </div>
     </div>
 </div>    
-
 <?php
     require_once("footer.php");
 ?>
-
-
 <script type="text/javascript">
 var iteracoes
 var colunas;
@@ -215,7 +212,6 @@ function destroy(){
 }
 
 function MostrarRel(){
-    //alert('ola');
     $('#relatorio_passo_passo').fadeIn("slow");
     $('#resolucao-final').fadeOut("slow");
     $('#relatorio-sensibilidade-2').append(sensibilidade)
@@ -230,4 +226,3 @@ function Inicio(){
     window.location.replace('index.php');
 }
 </script>
-
