@@ -476,6 +476,7 @@ function verificacao($restricoes)
           O else está mandando a solução direta.*/
         $dados['interacoes'] = $GLOBALS['interacoes'];
         $dados['sensibilidade'] = buscaRelatorioSensibilidade();
+
         print json_encode($dados);
     }else{
 

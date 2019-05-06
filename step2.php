@@ -5,6 +5,12 @@
   $restricoes = $_POST["restricoes"];
 ?>
 
+  <style type="text/css">
+    #imagem-topo{
+      height: 199px !important;
+    }
+  </style>
+
   <div class="main main-raised" id="campos-restricoes">
     <div class="container">
 
