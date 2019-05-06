@@ -65,19 +65,23 @@ $('#next-step-2').on('click',function(){
             
             /*Olá, Matheus! Tenta fazer esta maravilha funcionar. Estou mandando codificado o array de iterações e 
              também a tabela de sensibilidade já pronta, só precisa ajustar essa função, que não está funcinando...*/
-            $('#relatorio-sensibilidade-2').html(resposta.sensibilidade);
-            window.localStorage.setItem("tabela",JSON.stringify(resposta.interacoes));
-            
-            window.location.replace('step4.php#myTable');
+             $('#relatorio-sensibilidade-2').html(resposta.sensibilidade);
+             window.localStorage.setItem("sensibilidade",JSON.stringify(resposta.sensibilidade));
+             window.localStorage.setItem("tabela",JSON.stringify(resposta.interacoes));
+             console.log(resposta);
+             window.location.replace('step4.php#myTable');
         },
         error: function(resposta){
-            console.log(resposta.interacoes);
+            onsole.log(resposta.interacoes);
             teste = resposta.interacoes['responseText'];
             teste2 = teste.replace("}]}]","}]}];");
             teste3 = teste2.split(";")
             teste3 = teste3[0]
             window.localStorage.setItem("tabela",teste3);
             window.localStorage.setItem("erro",JSON.stringify(resposta.interacoes));
+            window.localStorage.setItem("sensibilidade",JSON.stringify(resposta.sensibilidade));
+            console.log("erro");
+            console.log(reposta);
             
             window.location.replace('step4.php#myTable');  
         }
