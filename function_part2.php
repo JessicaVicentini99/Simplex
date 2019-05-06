@@ -398,6 +398,29 @@ function retornaColunaFolga($interacoes, $n){
     return $aux;
 }
 
+function buscaRelatorioSensibilidade(){
+    /*Montagem do Relatório de Sensibilidade com uma lógica louca*/
+    $max = montaArrayVazio();
+    $b = retornaColunaB($GLOBALS['interacoes']);
+
+    for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
+       $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+       $max = retornaDivisaoColuna($b, $f, 'max', $max, $i);
+    }
+
+    $min = montaArrayVazio();
+    $b = retornaColunaB($GLOBALS['interacoes']);
+
+    for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
+       $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+       $min = retornaDivisaoColuna($b, $f, 'min', $min, $i);
+    }
+
+    $html = montarTabelaSensibilidade($dados_retorno_json['dados']['valores_finais'], $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
+
+    print  json_encode($html);
+}
+
 
 /**
  * Função principal que é responsavel pela logica do algoritmo chamada recursivamente
@@ -429,29 +452,31 @@ function verificacao($restricoes)
         verificacao($restricoes);
     };
 
+    /*Montagem do Relatório de Sensibilidade com uma lógica louca*/
+    $max = montaArrayVazio();
+    $b = retornaColunaB($GLOBALS['interacoes']);
+
+    for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
+       $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+       $max = retornaDivisaoColuna($b, $f, 'max', $max, $i);
+    }
+
+    $min = montaArrayVazio();
+    $b = retornaColunaB($GLOBALS['interacoes']);
+
+    for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
+       $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+       $min = retornaDivisaoColuna($b, $f, 'min', $min, $i);
+    }
+
     if($_POST['passo-a-passo'] == 'OK'){
+        /*Matheus, fua função sai daqui. Este foi o modo de mesclar o que eu já tinha feito com o seu...
+          O else está mandando a solução direta.*/
+        $dados['interacoes'] = $GLOBALS['interacoes'];
+        $dados['sensibilidade'] = montarTabelaSensibilidade($dados_retorno_json['dados']['valores_finais'], $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
 
-        print  json_encode($GLOBALS['interacoes']);
-
+        print json_encode($dados);
     }else{
-
-
-        /*Montagem do Relatório de Sensibilidade com uma lógica louca*/
-        $max = montaArrayVazio();
-        $b = retornaColunaB($GLOBALS['interacoes']);
-
-        for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
-           $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
-           $max = retornaDivisaoColuna($b, $f, 'max', $max, $i);
-        }
-
-        $min = montaArrayVazio();
-        $b = retornaColunaB($GLOBALS['interacoes']);
-
-        for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) { 
-           $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
-           $min = retornaDivisaoColuna($b, $f, 'min', $min, $i);
-        }
 
         /**
          * Montagem das tabelas pra visualização

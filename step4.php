@@ -7,7 +7,7 @@ include 'header.php';
     <div class="container">
     
         <div class="section  margin-top"> 
-            <div id="resolucao-final">
+            <div id="resolucao-final" style="display: block;">
             <div class="row text-center">
                 <h3 class="centralizado" id="step">
                     Passo 3
@@ -30,7 +30,9 @@ include 'header.php';
                 </div>
                 <div class="row">
                     <div class= "col-md-6" id="back">
-                        <button class="btn btn-primary btn-round" onclick="Inicio()" id="retorno">Inicio</button>
+                        <a herf="index.php">
+                            <button class="btn btn-primary btn-round" onclick="Inicio()" id="retorno">Inicio</button>
+                        </a>
                     </div> 
                     <div class= "col-md-6" id="botao">
                         <button class="btn btn-primary btn-round" onclick="Proximo()" id="proximo">Proximo</button>
@@ -38,24 +40,48 @@ include 'header.php';
                     </div>    
                 </div>
             </div>
+            <div class="section  margin-top" style="display: none;" id="relatorio_passo_passo">
+              <hr>
+              <div class="row text-center">
+                  <h3 class="centralizado">
+                    Relatório de Sensibilidade
+                  </h3>
+                </div>
+                <br>
+                <div id="relatorio-sensibilidade-2">
+                  
+                </div>
+                <div class="row">
+                  <div class="col-md-6">           
+                    <button class="btn btn-primary btn-round" id="voltar-resultado" onclick="VoltarPasso()" style="margin-top: 29px;float:right;">Voltar</button>            
+                  </div>
+                  <div class="col-md-6">
+                    <a href="index.php">
+                      <button class="btn btn-primary btn-round" style="margin-top: 29px;">Começar de novo!</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
        </div>
     </div>
-</div>      
+</div>    
 
 <?php
     require_once("footer.php");
 ?>
+
 
 <script type="text/javascript">
 var iteracoes
 var colunas;
 var contador = 0;
 var total ;
-
+var sensibilidade;
 
 $(document).ready(function() {
     
     iteracoes = JSON.parse(window.localStorage.getItem("tabela"));
+    sensibilidade =  JSON.parse(window.localStorage.getItem("sensibilidade"));
     total = iteracoes.length;
     colunas = (Object.keys(iteracoes[0]['base'][0]['colunas'])).reverse();
     
@@ -94,7 +120,7 @@ function Proximo(){
                 console.log(contador);
                 $('#step').text("Passo Final");
                 $('#proximo').remove();
-                $('#botao').append('<button class="btn btn-primary btn-round" id="sensitivity">Ver Relatório de Sensibilidade</button> ');
+                $('#botao').append('<button class="btn btn-primary btn-round" onclick="MostrarRel()" id="botao-sensibilidade">Ver Relatório de Sensibilidade</button> ');
                 
                 $('#solucao').append('<h5>A solução ótima é <b>'+iteracoes[contador-1]["base"][0]["linha"]+'='+iteracoes[contador-1]["base"][0]["colunas"]["B"]+'</b></h5> <br>')
                 var aux = colunas;
@@ -140,7 +166,7 @@ function Anterior(){
         if(contador == total)
         {
         
-            $('#sensitivity').remove();
+            $('#botao-sensibilidade').remove();
             $('#botao').append('<button class="btn btn-primary btn-round" onclick="Proximo()" id="proximo">Proximo</button>');
            // $('#solucao').empty();
         }
@@ -188,5 +214,20 @@ function destroy(){
     $("#myTable").find('th').remove();
 }
 
+function MostrarRel(){
+    //alert('ola');
+    $('#relatorio_passo_passo').fadeIn("slow");
+    $('#resolucao-final').fadeOut("slow");
+    $('#relatorio-sensibilidade-2').append(sensibilidade)
+}
 
+function VoltarPasso(){
+    $('#resolucao-final').fadeIn("slow");
+    $('#relatorio_passo_passo').fadeOut("slow");
+}
+
+function Inicio(){
+    window.location.replace('index.php');
+}
 </script>
+
