@@ -1,6 +1,13 @@
 <?php
 require_once("header.php");
 ?>
+
+<style type="text/css">
+  #imagem-topo{
+    height: 199px !important;
+  }
+</style>
+  
 <div class="main main-raised">
   <div class="container">
     <div class="section text-center">
