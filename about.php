@@ -14,31 +14,18 @@ require_once("header.php");
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <h2 class="title">Sobre o Produto</h2>
-          <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing
-            meaningful information. Remember that by this time, the user is curious, otherwise he wouldn&apos;t scroll
-            to get here. Add a button if you want the user to see more.</h5>
+          <h5 class="description">Este é o Easymplex, feito para te ajudar a resolver problemas de programação linear utilizando o algoritmo simplex.</h5>
         </div>
       </div>
       <div class="features">
         <div class="row">
           <div class="col-md-4">
             <div class="info">
-              <div class="icon icon-info">
-                <i class="fa fa-clipboard" aria-hidden="true"></i>
-              </div>
-              <h4 class="info-title">Relatório de Sensibilidade</h4>
-              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph
-                describing a feature will be enough.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="info">
               <div class="icon icon-success">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
               </div>
               <h4 class="info-title">Maximizar</h4>
-              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph
-                describing a feature will be enough.</p>
+              <p>Se o seu Objetivo é conseguir o maximo de algo possivel, respeitando algumas regras, basta utilizar nosso algoritmo de Maximização!</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -47,8 +34,16 @@ require_once("header.php");
                 <i class="fa fa-minus-circle" aria-hidden="true"></i>
               </div>
               <h4 class="info-title">Minimizar</h4>
-              <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph
-                describing a feature will be enough.</p>
+              <p>Ja se o seu objetivo é o minimo, mas tendo que utilziar uma quantidade determinada, utilize nosso algoritmo de Minimização!</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info">
+              <div class="icon icon-info">
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+              </div>
+              <h4 class="info-title">Relatório de Sensibilidade</h4>
+              <p>Descrubra quais regras estão impactando no seu resultado final e quais as melhorias aplicaveis.</p>
             </div>
           </div>
         </div>
@@ -69,9 +64,7 @@ require_once("header.php");
                   <small class="card-description text-muted">Programadora</small>
                 </h4>
                 <div class="card-body">
-                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they
-                    do. Feel free to add some
-                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  <p class="card-description">20 anos, estudante de Ciência da Computação, desenvolvedora fullstack, entusiasta a pesquisa cientifica e artista digital nas horas vagas </p>
                 </div>
               </div>
             </div>
@@ -87,9 +80,7 @@ require_once("header.php");
                   <small class="card-description text-muted">Programador</small>
                 </h4>
                 <div class="card-body">
-                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they
-                    do. Feel free to add some
-                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  <p class="card-description">20 anos, estudante de Ciência da Computação, pesquisador e desenvolvedor backend.</p>
                 </div>
               </div>
             </div>
@@ -105,9 +96,7 @@ require_once("header.php");
                   <small class="card-description text-muted">Programadora</small>
                 </h4>
                 <div class="card-body">
-                  <p class="card-description">You can write here details about one of your team members. You can give more details about what they
-                    do. Feel free to add some
-                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                  <p class="card-description">20 anos, estudante de Ciência da Computação, desenvolvedora fullstack e pesquisadora nas horas vagas.</p>
                 </div>
               </div>
             </div>

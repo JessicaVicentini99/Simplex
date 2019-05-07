@@ -35,12 +35,7 @@ require_once("header.php");
         <br>
         <div class="row">
           <form class="form-inline centralizado" action="/simplex/step2.php" method="POST">
-            <div class="col-md-3">
-              <div class="form-group">
-                <!--<label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>-->
-                <input type="hidden" class="form-control" name="" id="" >
-              </div>
-            </div>
+            
             <div class="col-md-3">
               <div class="form-group">
                 <label for="variable" class="bmd-label-floating">Número de Variáveis</label>
@@ -51,6 +46,12 @@ require_once("header.php");
               <div class="form-group">
                 <label for="restriction" class="bmd-label-floating" style="width: 140px;">Número de Restrições</label>
                 <input type="number" class="form-control" name="restricoes" id="restricoes" required="">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>
+                <input type="number" class="form-control" name="" id="" required>
               </div>
             </div>
             <div class="col-md-3" style="margin-top: 15px;">
