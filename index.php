@@ -34,7 +34,7 @@ require_once("header.php");
         </div>
         <br>
         <div class="row">
-          <form class="form-inline centralizado" action="/simplex/step2.php" method="POST">
+          <form class="inicio-form-inline centralizado" action="./step2.php" method="POST">
             
             <div class="col-md-3">
               <div class="form-group">
