@@ -12,6 +12,30 @@
     }
   </style>
 
+  <!--
+         +-----------------------------------+
+         | Modal erro: Limite de iteracoes   |
+         +-----------------------------------+
+       -->
+
+  <div class="modal fade" id="modalError">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-dynamic-content">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="main main-raised" id="campos-restricoes">
     <div class="container">
 
@@ -143,6 +167,7 @@
       |TERCEIRO PASSO: RESOLUÇÃO DIRETA|
       +--------------------------------+
       -->
+
       <div class="section  margin-top" style="display: none;" id="step-three">
         <div class="row text-center">
           <h3 class="centralizado">

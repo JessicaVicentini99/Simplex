@@ -20,7 +20,6 @@ $('#next-step-3').on('click',function(){
         dataType: 'json',
         data:  $('form').serialize(),
         success: function(json){
-
             $('#step-two').fadeOut("slow");
             $('#step-three').fadeIn("slow");
 
@@ -62,28 +61,33 @@ $('#next-step-2').on('click',function(){
         dataType: 'json',
         data:  $('form').serialize(),
         success: function(resposta){
-            
-            /*Olá, Matheus! Tenta fazer esta maravilha funcionar. Estou mandando codificado o array de iterações e 
-             também a tabela de sensibilidade já pronta, só precisa ajustar essa função, que não está funcinando...*/
-             $('#relatorio-sensibilidade-2').html(resposta.sensibilidade);
-             window.localStorage.setItem("sensibilidade",JSON.stringify(resposta.sensibilidade));
-             window.localStorage.setItem("tabela",JSON.stringify(resposta.interacoes));
-             console.log(resposta);
-             window.location.replace('step4.php#myTable');
+            if(resposta.erros != undefined) {
+                document.getElementById("modal-dynamic-content").innerHTML = "Ops... <br>" + resposta.erros;
+                $('#modalError').modal();
+            } else {
+                /*Olá, Matheus! Tenta fazer esta maravilha funcionar. Estou mandando codificado o array de iterações e
+            também a tabela de sensibilidade já p  ronta, só precisa ajustar essa função, que não está funcinando...*/
+                $('#relatorio-sensibilidade-2').html(resposta.sensibilidade);
+                window.localStorage.setItem("sensibilidade",JSON.stringify(resposta.sensibilidade));
+                window.localStorage.setItem("tabela",JSON.stringify(resposta.interacoes));
+                window.location.replace('step4.php#myTable');
+            }
+
         },
         error: function(resposta){
-            onsole.log(resposta.interacoes);
-            teste = resposta.interacoes['responseText'];
-            teste2 = teste.replace("}]}]","}]}];");
-            teste3 = teste2.split(";")
-            teste3 = teste3[0]
-            window.localStorage.setItem("tabela",teste3);
-            window.localStorage.setItem("erro",JSON.stringify(resposta.interacoes));
-            window.localStorage.setItem("sensibilidade",JSON.stringify(resposta.sensibilidade));
-            console.log("erro");
-            console.log(reposta);
-            
-            window.location.replace('step4.php#myTable');  
+            if(resposta.erros != undefined) {
+                document.getElementById("modal-dynamic-content").innerHTML = "Ops... <br>" + resposta.erros;
+                $('#modalError').modal();
+            } else {
+                teste = resposta.interacoes['responseText'];
+                teste2 = teste.replace("}]}]", "}]}] ;");
+                teste3 = teste2.split(";");
+                teste3 = teste3[0];
+                window.localStorage.setItem("tabela", teste3);
+                window.localStorage.setItem("erro", JSON.stringify(resposta.interacoes));
+                window.localStorage.setItem("sensibilidade", JSON.stringify(resposta.sensibilidade));
+                window.location.replace('step4.php#myTable');
+            }
         }
     });
 });

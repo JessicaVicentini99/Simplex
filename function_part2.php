@@ -432,7 +432,9 @@ function buscaRelatorioSensibilidade(){
 function verificacao($restricoes)
 {
     if($GLOBALS['contador'] > $GLOBALS['maxIteracoes']){
-        die('atingiu o maximo de iterações');
+        $dados['erros'] = 'O numero maximo de iterações foi atingido';
+        print json_encode($dados);
+        die();
     }
     $min = chaveMenorValorDeZ($restricoes);
     $coluna = buscaColunaQueEntra($restricoes, $min); //valor q vai entrar coluna q vai sair
@@ -612,7 +614,9 @@ function buscaMenorPositivo($array)
     //Pega o maior valor do array para não correr o risco de pegar o primeiro e esse ser um valor negativo
     $menor = max($array);
     if($menor < 0){
-        die("problema sem solução");
+        $dados['erros'] = 'O problema não possui solução';
+        print json_encode($dados);
+        die();
     }
     foreach ($array as $key => $value) {
         if($value!=null && $value >=0 && $value < $menor){
