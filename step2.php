@@ -3,6 +3,7 @@
 
   $variaveis = $_POST["variaveis"];
   $restricoes = $_POST["restricoes"];
+
 ?>
 
   <style type="text/css">
@@ -40,6 +41,7 @@
           <form class="form-inline centralizado">
 
             <input type="hidden" name="type-function" value="<?php print $_POST['type-function'];?>">
+            <input type="hidden" name="maximo-de-iteracoes" value="<?php print $_POST['maximo-de-iteracoes'];?>">
             <input type="hidden" name="passo-a-passo" id="passo-a-passo" value="">
 
             <p class="name-variable"> Z =</p>

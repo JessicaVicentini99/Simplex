@@ -2,6 +2,7 @@
 error_reporting(0);
 
 $restricoes = $_POST['restricoes'];
+$maxIteracoes = $_POST['maximo-de-iteracoes'];
 
 //variavel global q armazena todas as interações realizadas
 $interacoes = [];
@@ -430,6 +431,9 @@ function buscaRelatorioSensibilidade(){
  */
 function verificacao($restricoes)
 {
+    if($GLOBALS['contador'] > $GLOBALS['maxIteracoes']){
+        die('atingiu o maximo de iterações');
+    }
     $min = chaveMenorValorDeZ($restricoes);
     $coluna = buscaColunaQueEntra($restricoes, $min); //valor q vai entrar coluna q vai sair
     $colunaCapacidade = buscaColunaDeCapacidade($restricoes);
@@ -608,7 +612,7 @@ function buscaMenorPositivo($array)
     //Pega o maior valor do array para não correr o risco de pegar o primeiro e esse ser um valor negativo
     $menor = max($array);
     if($menor < 0){
-        return null;
+        die("problema sem solução");
     }
     foreach ($array as $key => $value) {
         if($value!=null && $value >=0 && $value < $menor){

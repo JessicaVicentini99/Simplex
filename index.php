@@ -51,9 +51,10 @@ require_once("header.php");
             <div class="col-md-3">
               <div class="form-group">
                 <label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>
-                <input type="number" class="form-control" name="" id="" required>
+                <input type="number" class="form-control" name="maximo-de-iteracoes" id="maximo-de-iteracoes" required>
               </div>
             </div>
+
             <div class="col-md-3" style="margin-top: 15px;">
               <div class="form-check">
                 <label class="form-check-label">
