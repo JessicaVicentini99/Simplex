@@ -3,6 +3,7 @@
 
   $variaveis = $_POST["variaveis"];
   $restricoes = $_POST["restricoes"];
+
 ?>
 
   <style type="text/css">
@@ -10,6 +11,30 @@
       height: 199px !important;
     }
   </style>
+
+  <!--
+         +-----------------------------------+
+         | Modal erro: Limite de iteracoes   |
+         +-----------------------------------+
+       -->
+
+  <div class="modal fade" id="modalError">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-dynamic-content">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="main main-raised" id="campos-restricoes">
     <div class="container">
@@ -31,8 +56,7 @@
         -->
         <div class="row text-center">
           <h4 class="centralizado">
-            Função Objetiva 
-            <i class="fa fa-info-circle" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="color: #03A9F4;"></i>
+            Função Objetiva
           </h4>
         </div>
         <br>
@@ -40,6 +64,7 @@
           <form class="form-inline centralizado">
 
             <input type="hidden" name="type-function" value="<?php print $_POST['type-function'];?>">
+            <input type="hidden" name="maximo-de-iteracoes" value="<?php print $_POST['maximo-de-iteracoes'];?>">
             <input type="hidden" name="passo-a-passo" id="passo-a-passo" value="">
 
             <p class="name-variable"> Z =</p>
@@ -80,7 +105,6 @@
         <div class="row text-center">
           <h4 class="centralizado">
             Restrições
-            <i class="fa fa-info-circle" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="color: #03A9F4;"></i>
           </h4>
         </div>
         <br>
@@ -141,6 +165,7 @@
       |TERCEIRO PASSO: RESOLUÇÃO DIRETA|
       +--------------------------------+
       -->
+
       <div class="section  margin-top" style="display: none;" id="step-three">
         <div class="row text-center">
           <h3 class="centralizado">

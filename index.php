@@ -10,17 +10,7 @@ require_once("header.php");
 
   <div class="main main-raised">
     <div class="container">
-      <div class="section text-center" id="about-product">
-        <div class="row">
-          <div class="col-md-12 ml-auto mr-auto">
 
-            <h2 class="title">Como Funciona</h2>
-            <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing
-              meaningful information. Remember that by this time, the user is curious, otherwise he wouldn&apos;t scroll
-              to get here. Add a button if you want the user to see more.</h5>
-          </div>
-        </div>
-      </div>
       <!--
         +---------------------------------------+
         | PRIMEIRO PASSO: VARIÁVEIS E RESTRIÇÕES|
@@ -28,13 +18,12 @@ require_once("header.php");
       -->
       
       <div class="section margin-top" id="step-one" style="display: block;">
-        <hr>
         <div class="row text-center">
           <h5 class="centralizado"><b>Passo 1:</b> Nos diga a quantidade de variáveis e quantidade de restriçõe que o seu problema tem:</h5>
         </div>
         <br>
         <div class="row">
-          <form class="form-inline centralizado" action="/simplex/step2.php" method="POST">
+          <form class="inicio-form-inline centralizado" action="./step2.php" method="POST">
             
             <div class="col-md-3">
               <div class="form-group">
@@ -51,9 +40,10 @@ require_once("header.php");
             <div class="col-md-3">
               <div class="form-group">
                 <label for="restriction" class="bmd-label-floating">Máximo de Iterações</label>
-                <input type="number" class="form-control" name="" id="" required>
+                <input type="number" min="1" max="10000" class="form-control" style="width: 153px" name="maximo-de-iteracoes" id="maximo-de-iteracoes" required>
               </div>
             </div>
+
             <div class="col-md-3" style="margin-top: 15px;">
               <div class="form-check">
                 <label class="form-check-label">
