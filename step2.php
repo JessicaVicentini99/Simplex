@@ -56,8 +56,7 @@
         -->
         <div class="row text-center">
           <h4 class="centralizado">
-            Função Objetiva 
-            <i class="fa fa-info-circle" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="color: #03A9F4;"></i>
+            Função Objetiva
           </h4>
         </div>
         <br>
@@ -106,7 +105,6 @@
         <div class="row text-center">
           <h4 class="centralizado">
             Restrições
-            <i class="fa fa-info-circle" aria-hidden="true" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="color: #03A9F4;"></i>
           </h4>
         </div>
         <br>

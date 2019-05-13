@@ -431,11 +431,57 @@ function buscaRelatorioSensibilidade(){
  */
 function verificacao($restricoes)
 {
-    if($GLOBALS['contador'] > $GLOBALS['maxIteracoes']){
+    if($GLOBALS['contador'] == $GLOBALS['maxIteracoes']){
+        /*Montagem do Relatório de Sensibilidade com uma lógica louca*/
+        $max = montaArrayVazio();
+        $b = retornaColunaB($GLOBALS['interacoes']);
+
+        for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) {
+            $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+            $max = retornaDivisaoColuna($b, $f, 'max', $max, $i);
+        }
+
+        $min = montaArrayVazio();
+        $b = retornaColunaB($GLOBALS['interacoes']);
+
+        for ($i=1; $i <= $GLOBALS['qtd_variaveis']; $i++) {
+            $f = retornaColunaFolga($GLOBALS['interacoes'], $i);
+            $min = retornaDivisaoColuna($b, $f, 'min', $min, $i);
+        }
+        if($_POST['passo-a-passo'] == 'OK'){
+            /*Matheus, fua função sai daqui. Este foi o modo de mesclar o que eu já tinha feito com o seu...
+              O else está mandando a solução direta.*/
+            $dados['interacoes'] = $GLOBALS['interacoes'];
+            $dados['sensibilidade'] = buscaRelatorioSensibilidade();
+
+            print json_encode($dados);
+        }else{
+
+            /**
+             * Montagem das tabelas pra visualização
+             */
+            foreach ($GLOBALS['interacoes'] as $key => $value) {
+                $tabelas[] = montarTabelaView($value);
+            }
+
+            $dados_retorno_json['dados']['tabela'] = $tabelas;
+            $dados_retorno_json['dados']['valores_finais'] = retornaValorFinal($GLOBALS['interacoes']);
+            $dados_retorno_json['dados']['valores_iniciais'] = $GLOBALS['valores_iniciais'];
+            $dados_retorno_json['dados']['sensibilidade'] = montarTabelaSensibilidade($dados_retorno_json['dados']['valores_finais'], $GLOBALS['valores_iniciais'], retornaUltimaLinhaZ($GLOBALS['interacoes']), $max, $min);
+            $dados_retorno_json['dados']['tipo_funcao'] = $_POST['type-function'];
+
+            print json_encode($dados_retorno_json);
+        }
+        //$dados['erros'] = 'O numero maximo de iterações foi atingido';
+        //print json_encode($dados);
+        die();
+
+    }else if($GLOBALS['contador'] > 100000){
         $dados['erros'] = 'O numero maximo de iterações foi atingido';
         print json_encode($dados);
         die();
     }
+
     $min = chaveMenorValorDeZ($restricoes);
     $coluna = buscaColunaQueEntra($restricoes, $min); //valor q vai entrar coluna q vai sair
     $colunaCapacidade = buscaColunaDeCapacidade($restricoes);
@@ -614,7 +660,7 @@ function buscaMenorPositivo($array)
     //Pega o maior valor do array para não correr o risco de pegar o primeiro e esse ser um valor negativo
     $menor = max($array);
     if($menor < 0){
-        $dados['erros'] = 'O problema não possui solução';
+        $dados['erros'] = 'O problema não possui solução.';
         print json_encode($dados);
         die();
     }

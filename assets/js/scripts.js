@@ -20,34 +20,41 @@ $('#next-step-3').on('click',function(){
         dataType: 'json',
         data:  $('form').serialize(),
         success: function(json){
-            $('#step-two').fadeOut("slow");
-            $('#step-three').fadeIn("slow");
+            if(json.erros != undefined){
+                document.getElementById("modal-dynamic-content").innerHTML = "Ops... <br>"+json.erros;
+                $('#modalError').modal();
+            }else {
 
-            var dados = json.dados;
-            var finais = dados.valores_finais;
-            var tabela = dados.tabela;
-            var sensibilidade = dados.sensibilidade;
+                $('#step-two').fadeOut("slow");
+                $('#step-three').fadeIn("slow");
 
-            $('#relatorio-sensibilidade').html(sensibilidade);
-            $('#relatorio-sensibilidade-2').html(sensibilidade);
-            $('#resolucao-final').html(tabela[tabela.length - 1]);
-            var strBuilder = [];
-            for(key in finais){
-                if (finais.hasOwnProperty(key)) {
-                    if(key == 'Z'){
-                        if(dados.tipo_funcao == 'min'){
-                            finais[key] = finais[key]*-1;
+                var dados = json.dados;
+                var finais = dados.valores_finais;
+                var tabela = dados.tabela;
+                var sensibilidade = dados.sensibilidade;
+
+                $('#relatorio-sensibilidade').html(sensibilidade);
+                $('#relatorio-sensibilidade-2').html(sensibilidade);
+                $('#resolucao-final').html(tabela[tabela.length - 1]);
+                var strBuilder = [];
+                for (key in finais) {
+                    if (finais.hasOwnProperty(key)) {
+                        if (key == 'Z') {
+                            if (dados.tipo_funcao == 'min') {
+                                finais[key] = finais[key] * -1;
+                            }
+
+                            $('#var-z').html('Z = ' + finais[key]);
+                        } else {
+                            $('#others-var').append('<h6>' + key + ' = ' + finais[key] + '</h6>')
                         }
-
-                        $('#var-z').html('Z = '+finais[key]);
-                    }else{
-                        $('#others-var').append('<h6>'+key+' = '+finais[key]+'</h6>')
                     }
                 }
             }
         },
         error: function(json){
-            alert('erro');
+            document.getElementById("modal-dynamic-content").innerHTML = "Ops... <br> Esta função não possui solução ou possui solução infinitas.";
+            $('#modalError').modal();
         }
     });
 });
