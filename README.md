@@ -6,6 +6,11 @@ Versionamento: https://github.com/JessicaVicentini99/Simplex
 Projeto de Pesquisa Operacional
 5º Semestre BCC UNIVEM
 
+Jéssica Vicentini RA: 57036-2
+Matheus Santi RA: 57369-8
+Melissa Seren RA: 569518
+
+
 O Simplex permite que se encontre valores ideais em situações em que diversos aspectos precisam ser respeitados. Diante de um problema, são estabelecidas inequações que representam restrições para as variáveis. A partir daí, testa-se possibilidades de maneira a otimizar, isto é, maximizar ou minimizar o resultado da forma mais rápida possível.
 
 O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de pesos e valores. O objetivo é que preencha a mochila com o maior valor possível, não ultrapassando o peso máximo.
