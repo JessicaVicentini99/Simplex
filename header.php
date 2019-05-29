@@ -34,7 +34,12 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.php" onclick="scrollToDownload()">
-              <i class="material-icons"></i> Início
+              <i class="material-icons"></i> Simplex
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mochila.php" onclick="scrollToDownload()">
+              <i class="material-icons"></i> Mochila
             </a>
           </li>
           <li class="nav-item">
