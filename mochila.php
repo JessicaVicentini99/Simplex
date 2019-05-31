@@ -47,7 +47,7 @@ require_once("header.php");
           <form class="inicio-form-inline centralizado" action="./step2-mochila.php" method="POST">
             
             <div class="col-md-6">
-              <div class="form-group">
+              <div class="form-group" style="margin-right: -139px;">
                 <label for="variable" class="bmd-label-floating">Quantidade de Itens</label>
                 <input type="number" class="form-control" name="qtd_item" id="qtd_item" min="1" required>
               </div>

@@ -29,30 +29,43 @@ O algoritmo da mochila consiste em preencher a mochila com objetos diferentes de
 ## Nota de realease a ser publicado
 1.0.0
 
-###Simplex
+### Simplex
 
 - Algoritmo Simplex para problemas de maximização.
 - Algoritmo Simplex para problemas de minimização.
 - É exibido o passo a passo das tabelas geradas pelo método Simplex
 - Tabela de Sensibilidade.
 
-##Entradas personalizadas para:
+### Mochila
 
-###Simplex
+- Apreentação da solução e dos itens a serem considerados.
+
+## Entradas personalizadas para:
+
+### Simplex
 
 - Limite máximo de iterações
 - Tipo de Simplex (MAX ou MIN)
 - Quantidade de variáveis e restrições
 
-##Limitações
+### Mochila
+- Capacidade da mochila
+- Peso e valor dos itens
 
-###Simplex
+## Limitações
+
+### Simplex
 
 - Em cada variável da função objetivo e das restrições deve conter apenas o número, sem a adição do 'x', separando os números por ';' e caso tenha alguma variável nula, é necessário inserir o 0.
 
-##Datas Importantes
+### Mochila
 
-###Simplex
+- Não utilizar itens com pesos iguais
+- Serão permitidos somente valores inteiros
+
+## Datas Importantes
+
+### Simplex
 
 Datas | Eventos
 --------- | ------
@@ -68,14 +81,24 @@ Datas | Eventos
 13/05/19     | Quantidade máxima de iterações
 13/05/19    | Atualizando README
 
-##Compatibilidade
+### Mochila
+
+Datas | Eventos
+--------- | ------
+13/05/19     | Início do Planejamento
+29/05/19     | Inserindo inputs
+29/05/19     | Refatoração do layout da Mochila e index
+30/05/19     | Finalização da Michila
+31/05/19     | Atualizando README
+
+## Compatibilidade
 
 Requisitos | Ferramentas
 --------- | ------
 Navegadores     | Mozila Firefox, Chrome
 Sistema Operacional    | Windows, Mac
 
-##Tecnologias
+## Tecnologias
 
 Tecnologias | Ferramentas
 --------- | ------
@@ -84,9 +107,9 @@ Back-End    | Javascript, PHP
 Editor de Texto  | Sublime e PHP Storm
 Servidor Web    | https://www.heroku.com/platform
 
-##Atividades Realizadas no Período
+## Atividades Realizadas no Período
 
-###Simplex
+### Simplex
 
 Código | Título | Tarefa | Situação | Observação
 --------- | ------ | -------| -------| -------
@@ -101,3 +124,8 @@ Código | Título | Tarefa | Situação | Observação
 9  | Informações sobre o funcionamento do algoritmo | Informações completas sobre Programação Linear e o método de resolução SIMPLEX!. |Concluído|
 10  | Explicação das ações no passo-a-passo | Explicação basica do funcionamento. |Concluído|
 
+### Mochila
+
+Código | Título | Tarefa | Situação | Observação
+--------- | ------ | -------| -------| -------
+1 | Tabela de solução | Demonstrar ao usuário as etapas do algortimo | Concluído |
