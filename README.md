@@ -128,4 +128,4 @@ Código | Título | Tarefa | Situação | Observação
 
 Código | Título | Tarefa | Situação | Observação
 --------- | ------ | -------| -------| -------
-1 | Tabela de solução | Demonstrar ao usuário as etapas do algortimo | Concluído |
+1 | Solução do problema | Mostrar ao usuário os itens selecionados pelo algoritmo como qualificados | Concluído |
