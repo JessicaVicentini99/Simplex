@@ -51,7 +51,7 @@ error_reporting(0);
 		}
 	}
 
-	$repeat = array_count_values( $_POST['pesos']);
+	$repeat = array_count_values( $_POST['nomes']);
 
 	foreach($repeat as $key => $value){
 	    if($value > 1){
